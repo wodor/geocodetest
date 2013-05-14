@@ -2,9 +2,6 @@
 
 namespace Wodor\Gmap\Command;
 
-use Geocoder\Formatter\FormatterInterface;
-use Geocoder\Geocoder;
-use Geocoder\GeocoderInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -35,16 +32,9 @@ class GeocodeCommand extends Command{
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        /** @var GeocoderInterface $geocoder */
-        $geocoder = $this->container['geocoder'];
-        /**  @var \Geocoder\Result\ResultInterface $result */
-        $result = $geocoder->geocode($input->getArgument('address'));
-
-
-        /** @var $formatter FormatterInterface */
-        $formatter = $this->container['formatter'];
-        $output->writeln($formatter->format($result));
-
-       // $output->writeln(print_r($result->toArray(),1));
+        /** @var \Geocoder $geocoderService */
+        $geocoderService = $this->container['geocoder.formatted'];
+        $address = $input->getArgument('address');
+        $output->writeln($geocoderService->geocodeToString($address));
     }
 }

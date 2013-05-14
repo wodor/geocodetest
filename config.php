@@ -1,3 +1,5 @@
 <?php
 
-$container['formatter.format'] = '%S %n, %z %L';
+$container['formatter.format'] = 'country:%C state/region: %R, county:%P, city %L %z %n ';
+
+
