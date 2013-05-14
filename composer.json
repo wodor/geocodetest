@@ -1,0 +1,22 @@
+{
+    "name": "wodor/gmap_integration_libs",
+    "description": "proxy of the api",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Artur Wielogorski",
+            "email": "wodor@wodor.net"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Wodor\\": "src/"
+        }
+    },
+    "require": {
+        "willdurand/geocoder": "1.4.0",
+        "symfony/console": "*",
+        "pimple/pimple": "*"
+    }
+
+}

@@ -1,0 +1,12 @@
+#!/usr/bin/php
+<?php
+require 'vendor/autoload.php';
+use Wodor\Gmap\Command\GeocodeCommand;
+
+$container = require 'container.php';
+
+require 'config.php';
+
+$app = new \Symfony\Component\Console\Application();
+$app->add(new GeocodeCommand($container));
+$app->run();
